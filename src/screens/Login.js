@@ -6,7 +6,7 @@ const Login = () => {
 	return (
 		<div className='container'>
 			<div className='Login'>
-				<div className='title'>Login updated</div>
+				<div className='title'>Login</div>
 				<form autocomplete='false' action='#'>
 					<div className='user-details'>
 						<div className='input_box'>
