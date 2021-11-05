@@ -1,0 +1,91 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	font-family: "Poppins", sans-serif;
+}
+.Login {
+	max-width: 700px;
+	width: 100%;
+	background-color: #fff;
+	padding: 25px 30px;
+	border-radius: 5px;
+	box-shadow: 4px 1px 6px 2px rgba(92, 92, 92, 0.69);
+	-webkit-box-shadow: 4px 1px 6px 2px rgba(92, 92, 92, 0.69);
+	-moz-box-shadow: 4px 1px 6px 2px rgba(92, 92, 92, 0.69);
+}
+
+.Login .title {
+	font-size: 25px;
+	font-weight: 500;
+}
+.Login form .user-details {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 20px 0 12px 0;
+}
+.Login form .user-details .input_box {
+	width: 300px;
+	margin-bottom: 15px;
+}
+.Login form .user-details .input_box .details {
+	display: block;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+.Login form .user-details .input_box input {
+	height: 45px;
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	padding-left: 10px;
+	font-size: 16px;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+.Login form .user-details .input_box input:focus {
+	border-color: #9b59b6;
+}
+.button {
+	height: 45px;
+	margin: 45px 0;
+}
+.button input {
+	height: 100%;
+	width: 100%;
+	border: none;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	color: white;
+	cursor: pointer;
+	transition: 1s all ease;
+}
+.button input:hover {
+	transition: 1s all ease;
+	background: linear-gradient(135deg, #9b59b6, #71b7e6);
+}
+.alreadyUser {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+.alreadyUser a {
+	text-decoration: none;
+	color: blue;
+	font-size: 10;
+}
+@media (max-width: 584px) {
+	.Login {
+		max-width: 100%;
+		padding: 20;
+	}
+	.Login form .user-details .input_box {
+		margin-bottom: 15px;
+		width: 100%;
+	}
+}
