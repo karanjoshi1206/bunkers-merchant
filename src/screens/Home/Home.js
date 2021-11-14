@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import "./data";
 import data from "./data.js";
 import Navigation from "../../components/navigation/Navigation";
 const Home = () => {
-	const [orderData, setOrderData] = useState(data);
+	const [orderData] = useState(data);
 	// useEffect(() => {
 	// 	setOrderData(data);
 	// 	return () => {
