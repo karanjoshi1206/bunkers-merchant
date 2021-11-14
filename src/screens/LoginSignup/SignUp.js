@@ -1,8 +1,11 @@
 import React from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className='container'>
 			<div className='Login'>
@@ -60,7 +63,12 @@ const SignUp = () => {
 					</div>
 
 					<div className='button' type='submit'>
-						<input autocomplete='off' type='submit' value='Register' />
+						<input
+							onClick={navigate("/home")}
+							autocomplete='off'
+							type='submit'
+							value='Register'
+						/>
 					</div>
 					<div className='alreadyUser'>
 						<h5>Already a merchant</h5>

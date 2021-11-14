@@ -1,0 +1,22 @@
+.menu {
+	background-color: "#fff" !important;
+	padding: 20px 30px;
+}
+.menu {
+	display: flex;
+	justify-content: space-between;
+}
+.menu li {
+	list-style-type: none;
+}
+.menu li a {
+	text-decoration: none;
+	padding: 10px;
+	color: black;
+	transition: 0.3s ease;
+	border-radius: 5px;
+}
+.menu li :hover {
+	background-color: orange;
+	color: white;
+}
