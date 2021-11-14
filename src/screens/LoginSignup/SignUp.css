@@ -4,7 +4,8 @@
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	/* background: linear-gradient(135deg, #71b7e6, #9b59b6); */
+	background-color: rgb(247, 180, 56);
 	font-family: "Poppins", sans-serif;
 }
 .Login {

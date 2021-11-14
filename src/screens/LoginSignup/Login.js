@@ -34,7 +34,9 @@ const Login = () => {
 							/>
 						</div>
 					</div>
-
+					<div className='alreadyUser'>
+						<Link to='/'>Forgot password</Link>
+					</div>
 					<div className='button' type='submit'>
 						<input required autocomplete='off' type='submit' value='Login' />
 					</div>
