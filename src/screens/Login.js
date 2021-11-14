@@ -14,6 +14,7 @@ const Login = () => {
 								Email
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='email'
 								id='email'
@@ -25,6 +26,7 @@ const Login = () => {
 								Password
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='password'
 								id='password'
@@ -34,7 +36,7 @@ const Login = () => {
 					</div>
 
 					<div className='button' type='submit'>
-						<input autocomplete='off' type='submit' value='Login' />
+						<input required autocomplete='off' type='submit' value='Login' />
 					</div>
 					<div className='alreadyUser'>
 						<h5>Not a merchant</h5>

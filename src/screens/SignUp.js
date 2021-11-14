@@ -14,6 +14,7 @@ const SignUp = () => {
 								Full Name
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='text'
 								id='name'
@@ -25,6 +26,7 @@ const SignUp = () => {
 								Mobile number
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='number'
 								id='number'
@@ -36,6 +38,7 @@ const SignUp = () => {
 								Email
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='email'
 								id='email'
@@ -47,6 +50,7 @@ const SignUp = () => {
 								Password
 							</label>
 							<input
+								required
 								autocomplete='false'
 								type='password'
 								id='password'
