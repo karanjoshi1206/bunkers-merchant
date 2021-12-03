@@ -1,24 +1,24 @@
 import React from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 
 	return (
 		<div className='container'>
 			<div className='Login'>
 				<div className='title'>Register</div>
-				<form autocomplete='false' action='#'>
+				<form autoComplete='false' action='#'>
 					<div className='user-details'>
 						<div className='input_box'>
 							<label className='details' htmlFor='name'>
 								Full Name
 							</label>
 							<input
-								required
-								autocomplete='false'
+								// required
+								autoComplete='false'
 								type='text'
 								id='name'
 								placeholder='Eg. Karan Joshi'
@@ -29,8 +29,8 @@ const SignUp = () => {
 								Mobile number
 							</label>
 							<input
-								required
-								autocomplete='false'
+								// required
+								autoComplete='false'
 								type='number'
 								id='number'
 								placeholder='Eg. 894728392'
@@ -41,8 +41,8 @@ const SignUp = () => {
 								Email
 							</label>
 							<input
-								required
-								autocomplete='false'
+								// required
+								autoComplete='false'
 								type='email'
 								id='email'
 								placeholder='Eg. karanjoshi123@gmail.com'
@@ -53,8 +53,8 @@ const SignUp = () => {
 								Password
 							</label>
 							<input
-								required
-								autocomplete='false'
+								// required
+								autoComplete='false'
 								type='password'
 								id='password'
 								placeholder='Set your password'
@@ -62,13 +62,10 @@ const SignUp = () => {
 						</div>
 					</div>
 
-					<div className='button' type='submit'>
-						<input
-							onClick={navigate("/home")}
-							autocomplete='off'
-							type='submit'
-							value='Register'
-						/>
+					<div className='button'>
+						<Link to='/home'>
+							<input autoComplete='off' type='submit' value='Register' />
+						</Link>
 					</div>
 					<div className='alreadyUser'>
 						<h5>Already a merchant</h5>

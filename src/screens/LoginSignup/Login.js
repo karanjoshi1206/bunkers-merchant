@@ -7,7 +7,7 @@ const Login = () => {
 		<div className='container'>
 			<div className='Login'>
 				<div className='title'>Login</div>
-				<form autocomplete='false' action='#'>
+				<form autoComplete='false' action='#'>
 					<div className='user-details'>
 						<div className='input_box'>
 							<label className='details' htmlFor='email'>
@@ -15,7 +15,7 @@ const Login = () => {
 							</label>
 							<input
 								required
-								autocomplete='false'
+								autoComplete='false'
 								type='email'
 								id='email'
 								placeholder='Eg. karanjoshi123@gmail.com'
@@ -27,7 +27,7 @@ const Login = () => {
 							</label>
 							<input
 								required
-								autocomplete='false'
+								autoComplete='false'
 								type='password'
 								id='password'
 								placeholder='Set your password'
@@ -38,7 +38,7 @@ const Login = () => {
 						<Link to='/'>Forgot password</Link>
 					</div>
 					<div className='button' type='submit'>
-						<input required autocomplete='off' type='submit' value='Login' />
+						<input required autoComplete='off' type='submit' value='Login' />
 					</div>
 					<div className='alreadyUser'>
 						<h5>Not a merchant</h5>
