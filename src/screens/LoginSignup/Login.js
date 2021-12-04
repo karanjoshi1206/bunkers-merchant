@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
 	return (
-		<div className='container'>
+		<div className='signUp_container'>
 			<div className='Login'>
 				<div className='title'>Login</div>
 				<form autoComplete='false' action='#'>

@@ -35,6 +35,18 @@ const Orderinfo = () => {
 							<div className='item'>
 								<h4>Chai</h4>
 								<p>× 2</p>
+							</div>{" "}
+							<div className='item'>
+								<h4>Maggie</h4>
+								<p>× 4</p>
+							</div>
+							<div className='item'>
+								<h4>Noodles</h4>
+								<p>× 3</p>
+							</div>
+							<div className='item'>
+								<h4>Chai</h4>
+								<p>× 2</p>
 							</div>
 						</div>
 					</div>

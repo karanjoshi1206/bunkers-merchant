@@ -7,7 +7,7 @@ const SignUp = () => {
 	// const navigate = useNavigate();
 
 	return (
-		<div className='container'>
+		<div className='signUp_container'>
 			<div className='Login'>
 				<div className='title'>Register</div>
 				<form autoComplete='false' action='#'>

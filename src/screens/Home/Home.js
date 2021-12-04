@@ -110,9 +110,19 @@ const Home = () => {
 									<div className='orderRow'>
 										<button
 											onClick={(e) => {
+												e.stopPropagation();
+												alert("Order accepted");
+											}}
+											className='btn btn-success'
+											// disabled='disabled'
+										>
+											Accept order
+										</button>
+										<button
+											onClick={(e) => {
 												handleShow(e);
 											}}
-											className='btn-cod'
+											className='btn btn-danger'
 											// disabled='disabled'
 										>
 											Cancel order
