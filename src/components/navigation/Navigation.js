@@ -8,7 +8,7 @@ const Navigation = () => {
 			<div className='navBar'>
 				<ul className='menu'>
 					<li>
-						<Link to='/'>Home</Link>
+						<Link to='/home'>Home</Link>
 					</li>
 					<li>
 						<Link to='/'>Settings</Link>

@@ -14,7 +14,7 @@
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+		<link rel="manifest" href="./manifest.json" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -23,7 +23,7 @@
 			referrerpolicy="no-referrer"
 		/>
 
-		<title>React App</title>
+		<title>Bunkers Merchant</title>
 	</head>
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
@@ -38,5 +38,43 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+		<script>
+			if ("serviceWorker" in navigator) {
+				window.addEventListener("load", function () {
+					navigator.serviceWorker
+						.register("./serviceworker.js")
+						.then(
+							function (registration) {
+								console.log(
+									"Worker registration successful",
+									registration.scope
+								);
+							},
+							function (err) {
+								console.log("Worker registration failed", err);
+							}
+						)
+						.catch(function (err) {
+							console.log(err);
+						});
+				});
+			} else {
+				console.log("Service Worker is not supported by browser.");
+			}
+		</script>
+		<script
+			src="https://unpkg.com/react/umd/react.production.min.js"
+			crossorigin
+		></script>
+
+		<script
+			src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+			crossorigin
+		></script>
+
+		<script
+			src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+			crossorigin
+		></script>
 	</body>
 </html>
