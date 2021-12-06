@@ -1,8 +1,11 @@
 import React from "react";
+import { useParams } from "react-router";
 import Navigation from "../navigation/Navigation";
 import "./Orderinfo.css";
 
 const Orderinfo = () => {
+	const { id } = useParams();
+	console.log("id ", id);
 	return (
 		<>
 			<Navigation />
@@ -15,7 +18,7 @@ const Orderinfo = () => {
 					</div>
 					<div className='orderinfo'>
 						<h4>Order Id</h4>
-						<p>99233</p>
+						<p>{id}</p>
 					</div>
 					<div className='orderinfo'>
 						<h4>Customer name</h4>
