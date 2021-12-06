@@ -68,68 +68,64 @@ const Home = () => {
 					</Modal>
 					{orderData?.map((elem) => {
 						return (
-							<>
-								<div
-									onClick={() => navigate("/orderInfo")}
-									key={elem.id}
-									className='order'>
-									<div className='orderRow'>
-										<h4>Customer name</h4>
-										<p>{elem.id} </p>
-									</div>
-									<div className='orderRow'>
-										<h4>Item Name</h4>
-										<p>{elem.itemName} </p>
-									</div>
-									<div className='orderRow'>
-										<h4>Quantity</h4>
-										<p>{elem.qty}</p>
-									</div>
-									<div className='orderRow'>
-										<h4>Payment mode</h4>
-
-										{elem.paymentMode === "cod" ? (
-											<button className='btn-cod' disabled='disabled'>
-												COD
-											</button>
-										) : (
-											<button className='btn-online' disabled='disabled'>
-												Online
-											</button>
-										)}
-									</div>
-									<div>
-										<button
-											onClick={(e) => update(e)}
-											className='order-complete'>
-											<i className='far fa-check-circle'></i>
-											Mark Order completed
-										</button>
-									</div>
-
-									<div className='orderRow'>
-										<button
-											onClick={(e) => {
-												e.stopPropagation();
-												alert("Order accepted");
-											}}
-											className='btn btn-success'
-											// disabled='disabled'
-										>
-											Accept order
-										</button>
-										<button
-											onClick={(e) => {
-												handleShow(e);
-											}}
-											className='btn btn-danger'
-											// disabled='disabled'
-										>
-											Cancel order
-										</button>
-									</div>
+							<div
+								onClick={() => navigate(`/orderInfo/${elem.orderId}`)}
+								key={elem.id}
+								className='order'>
+								<div className='orderRow'>
+									<h4>Customer name</h4>
+									<p>{elem.id} </p>
 								</div>
-							</>
+								<div className='orderRow'>
+									<h4>Item Name</h4>
+									<p>{elem.itemName} </p>
+								</div>
+								<div className='orderRow'>
+									<h4>Quantity</h4>
+									<p>{elem.qty}</p>
+								</div>
+								<div className='orderRow'>
+									<h4>Payment mode</h4>
+
+									{elem.paymentMode === "cod" ? (
+										<button className='btn-cod' disabled='disabled'>
+											COD
+										</button>
+									) : (
+										<button className='btn-online' disabled='disabled'>
+											Online
+										</button>
+									)}
+								</div>
+								<div>
+									<button onClick={(e) => update(e)} className='order-complete'>
+										<i className='far fa-check-circle'></i>
+										Mark Order completed
+									</button>
+								</div>
+
+								<div className='orderRow'>
+									<button
+										onClick={(e) => {
+											e.stopPropagation();
+											alert("Order accepted");
+										}}
+										className='btn btn-success'
+										// disabled='disabled'
+									>
+										Accept order
+									</button>
+									<button
+										onClick={(e) => {
+											handleShow(e);
+										}}
+										className='btn btn-danger'
+										// disabled='disabled'
+									>
+										Cancel order
+									</button>
+								</div>
+							</div>
 						);
 					})}
 				</div>
