@@ -40,11 +40,7 @@
 	height: 20px;
 	width: 20px;
 	overflow: hidden;
-	display: none;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	display: none !important;
 }
 
 .line1,
@@ -73,7 +69,10 @@
 }
 @media (max-width: 720px) {
 	.hamBurger {
-		display: block;
+		display: flex !important;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	.logo_container img {
 		height: 50px;

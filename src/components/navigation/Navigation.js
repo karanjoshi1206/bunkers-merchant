@@ -32,7 +32,7 @@ const Navigation = () => {
 				<div
 					onClick={(e) => handleOpen(e)}
 					id='hamBurger'
-					className={`hamburger ${menuOpen === true ? "" : "active"}`}>
+					className='hamBurger'>
 					<div className={`line1 ${menuOpen === true ? "active" : ""}`}></div>
 					<div className={`line2 ${menuOpen === true ? "active" : ""}`}></div>
 					<div className={`line3 ${menuOpen === true ? "active" : ""}`}></div>
