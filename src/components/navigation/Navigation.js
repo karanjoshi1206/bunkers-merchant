@@ -20,7 +20,7 @@ const Navigation = () => {
 						<Link to='/home'>Home</Link>
 					</li>
 					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/orderInfo'>Settings</Link>
+						<Link to='/'>Settings</Link>
 					</li>
 					<li onClick={(e) => handleOpen(e)}>
 						<Link to='/'>History</Link>
