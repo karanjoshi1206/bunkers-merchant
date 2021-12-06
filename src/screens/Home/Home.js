@@ -6,6 +6,8 @@ import Navigation from "../../components/navigation/Navigation";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import swal from "sweetalert";
+
 const Home = () => {
 	const [orderData] = useState(data);
 	const [show, setShow] = useState(false);
@@ -29,7 +31,7 @@ const Home = () => {
 
 	const update = (e) => {
 		e.stopPropagation();
-		alert("Success!!");
+		swal("Success!!");
 	};
 	return (
 		<>
@@ -48,7 +50,11 @@ const Home = () => {
 							<Button
 								variant='danger'
 								onClick={(e) => {
-									alert("Order cancelled");
+									swal({
+										title: "Order cancelled",
+										icon: "warning",
+										dangerMode: true,
+									});
 									handleClose(e);
 								}}>
 								Item unavailable
@@ -56,7 +62,11 @@ const Home = () => {
 							<Button
 								variant='danger'
 								onClick={(e) => {
-									alert("Order cancelled");
+									swal({
+										title: "Order cancelled",
+										icon: "warning",
+										dangerMode: true,
+									});
 									handleClose(e);
 								}}>
 								Other
@@ -108,7 +118,7 @@ const Home = () => {
 									<button
 										onClick={(e) => {
 											e.stopPropagation();
-											alert("Order accepted");
+											swal("Order accepted");
 										}}
 										className='btn btn-success'
 										// disabled='disabled'
