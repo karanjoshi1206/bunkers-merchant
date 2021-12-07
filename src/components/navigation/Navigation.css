@@ -27,8 +27,8 @@
 	color: white;
 }
 .logo_container img {
-	height: 70px;
-	width: 70px;
+	height: 75px;
+	width: 75px;
 	object-fit: cover;
 	box-shadow: 4px 1px 6px 2px rgba(255, 74, 58, 0.795);
 	-webkit-box-shadow: 4px 1px 6px 2px rgba(255, 74, 58, 0.795);
