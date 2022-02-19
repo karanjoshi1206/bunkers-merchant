@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import Navigation from "../navigation/Navigation";
-import "./Orderinfo.css";
+import "./Orderinfo.scss";
 
 const Orderinfo = () => {
 	const { id } = useParams();

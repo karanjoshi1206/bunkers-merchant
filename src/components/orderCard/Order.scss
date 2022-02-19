@@ -1,20 +1,4 @@
-.orders {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 30px;
-}
-.main {
-	background-color: rgb(255, 75, 58);
-	min-height: 100vh;
-	padding: 30px;
-}
-.main_heading {
-	text-align: center;
-	color: white;
-	font-size: 30px;
-}
+@import "../../global.scss";
 .order {
 	background-color: white;
 	padding: 30px;
@@ -25,15 +9,25 @@
 	margin: 20px 0;
 	cursor: pointer;
 	border-radius: 15px;
+	@include mobile {
+		// min-width: auto;
+		padding: 20px;
+	}
 }
 .orderRow {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 10px 0;
+	margin-bottom: 10px;
 }
-.orderRow h4 {
-	font-size: 15px;
+.order {
+	.orderRow {
+		// margin: 7px 0;
+		h4 {
+			font-size: 17px;
+			font-weight: 500;
+		}
+	}
 }
 .btn-online {
 	background-color: lightgreen;
@@ -64,10 +58,36 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
+	font-size: 15px;
+	margin: 20px 0;
+}
+.order-complete-active {
+	background-color: lightgreen;
 }
 .order-complete i {
 	margin: 0 10px 0 0;
 	font-size: 17px;
 	font-weight: bold;
 	color: green;
+}
+.order_button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	@include mobile {
+		padding: 10px;
+		margin-right: 5px;
+	}
+	padding: 10px 15px;
+	border-radius: 10px;
+}
+.order_button_accept {
+	background-color: lightgreen;
+	border: 2px solid green;
+	margin-right: 10px;
+}
+.order_button_cancel {
+	background-color: crimson;
+	border: 2px solid red;
+	color: white;
 }

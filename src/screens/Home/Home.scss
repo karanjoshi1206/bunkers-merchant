@@ -1,0 +1,29 @@
+@import "../../global.scss";
+
+.orders {
+	display: flex;
+	gap: 20px;
+	/* justify-content: space-around; */
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 30px;
+	@include mobile {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+	}
+}
+.main {
+	background-color: rgb(255, 75, 58);
+	min-height: 100vh;
+	padding: 30px;
+	@include mobile {
+		padding: 10px;
+	}
+}
+.main_heading {
+	text-align: center;
+	color: white;
+	font-size: 30px;
+}
