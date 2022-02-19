@@ -20,7 +20,7 @@ const Navigation = () => {
 						<Link to='/home'>Home</Link>
 					</li>
 					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/orderInfo'>Settings</Link>
+						<Link to='/'>Settings</Link>
 					</li>
 					<li onClick={(e) => handleOpen(e)}>
 						<Link to='/'>History</Link>
@@ -32,7 +32,7 @@ const Navigation = () => {
 				<div
 					onClick={(e) => handleOpen(e)}
 					id='hamBurger'
-					className={`hamburger ${menuOpen === true ? "" : "active"}`}>
+					className='hamBurger'>
 					<div className={`line1 ${menuOpen === true ? "active" : ""}`}></div>
 					<div className={`line2 ${menuOpen === true ? "active" : ""}`}></div>
 					<div className={`line3 ${menuOpen === true ? "active" : ""}`}></div>

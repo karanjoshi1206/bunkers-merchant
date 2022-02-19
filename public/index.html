@@ -49,6 +49,26 @@
 									"Worker registration successful",
 									registration.scope
 								);
+
+								registration.pushManager
+									.subscribe({
+										userVisibleOnly: true,
+										applicationServerKey:
+											"BFrM6IVeCemORnmpalk7aOH4mR3-lOZEEqq0GP8nfjUZ07_ZnawIX9KtOuEOts8egR_R1rye0qrpmdM7xe0w3GM",
+									})
+									.then((sub) => {
+										console.log("new sub added");
+									})
+									.catch(function (e) {
+										if (Notification.permission !== "granted") {
+											console.log("Permission was not granted.");
+										} else {
+											console.error(
+												"An error ocurred during the subscription process.",
+												e
+											);
+										}
+									});
 							},
 							function (err) {
 								console.log("Worker registration failed", err);
