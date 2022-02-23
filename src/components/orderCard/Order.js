@@ -7,7 +7,7 @@ import Rodal from "rodal";
 import "rodal/lib/rodal.css";
 
 const Order = ({ elem, handleShow, update }) => {
-	let navigate = useNavigate();
+	// let navigate = useNavigate();
 	const [isComplete, setIsComplete] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const showOrderData = () => {
