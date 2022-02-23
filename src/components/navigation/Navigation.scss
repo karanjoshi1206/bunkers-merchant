@@ -26,14 +26,24 @@
 	background-color: rgb(255, 75, 58);
 	color: white;
 }
-.logo_container img {
-	height: 75px;
-	width: 75px;
-	object-fit: cover;
-	box-shadow: 4px 1px 6px 2px rgba(255, 74, 58, 0.795);
-	-webkit-box-shadow: 4px 1px 6px 2px rgba(255, 74, 58, 0.795);
-	-moz-box-shadow: 4px 1px 6px 2px rgba(255, 74, 58, 0.795);
-	border-radius: 50%;
+.logo_container {
+	display: flex;
+	cursor: pointer;
+	align-items: center;
+	h1 {
+		font-size: 24px;
+		color: rgb(255, 75, 58);
+	}
+	img {
+		height: 50px;
+		width: 50px;
+		object-fit: cover;
+		border-radius: 50px;
+		background: #e0e0e0;
+		box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+		border-radius: 50%;
+		margin-right: 10px;
+	}
 }
 
 .hamBurger {

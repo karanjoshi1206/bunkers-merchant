@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Navigation.css";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navigation.scss";
 
 const Navigation = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -9,11 +9,13 @@ const Navigation = () => {
 		setMenuOpen(!menuOpen);
 		// setActiveClass(activeClass === "" ? "active" : "");
 	};
+	let navigate = useNavigate();
 	return (
 		<>
 			<div className='navBar'>
-				<div className='logo_container'>
+				<div onClick={() => navigate("/")} className='logo_container'>
 					<img src='/logo.png' alt='' />
+					<h1>BUNKERS</h1>
 				</div>
 				<ul className={`menu ${menuOpen === true ? "" : "active"}`}>
 					<li onClick={(e) => handleOpen(e)}>

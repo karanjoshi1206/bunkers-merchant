@@ -1,10 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import swal from "sweetalert";
 
 const SignUp = () => {
-	// const navigate = useNavigate();
+	useEffect(() => {
+		const loggedInUser = localStorage.getItem("userid");
+		if (loggedInUser) {
+			console.log(loggedInUser);
+		}
+	}, []);
+	const [fname, setFname] = useState("");
+	const [phone, setPhone] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const signUp = async (e) => {
+		e.preventDefault();
+		console.log(typeof phone);
+		if (fname === "" || phone === "" || email === "" || password === "") {
+			swal("Insufficient details ");
+		} else {
+			await axios
+				.post("https://bunker-api-food.herokuapp.com/merchant/signup", {
+					email: email,
+					password: password,
+					name: fname,
+					phoneNumber: phone,
+				})
+				.then((res) => {
+					console.log(res.data.result);
+
+					localStorage.setItem("userid", res.data.result.id);
+				})
+				.catch((err) => console.log(err));
+		}
+	};
 
 	return (
 		<div className='signUp_container'>
@@ -17,7 +48,8 @@ const SignUp = () => {
 								Full Name
 							</label>
 							<input
-								// required
+								value={fname}
+								onChange={(e) => setFname(e.target.value)}
 								autoComplete='false'
 								type='text'
 								id='name'
@@ -29,7 +61,8 @@ const SignUp = () => {
 								Mobile number
 							</label>
 							<input
-								// required
+								value={phone}
+								onChange={(e) => setPhone(e.target.value)}
 								autoComplete='false'
 								type='number'
 								id='number'
@@ -41,7 +74,8 @@ const SignUp = () => {
 								Email
 							</label>
 							<input
-								// required
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 								autoComplete='false'
 								type='email'
 								id='email'
@@ -53,7 +87,8 @@ const SignUp = () => {
 								Password
 							</label>
 							<input
-								// required
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
 								autoComplete='false'
 								type='password'
 								id='password'
@@ -63,9 +98,8 @@ const SignUp = () => {
 					</div>
 
 					<div className='button'>
-						<Link to='/home'>
-							<input autoComplete='off' type='submit' value='Register' />
-						</Link>
+						{/* <input autoComplete='off' type='submit' value='Register' /> */}
+						<button onClick={(e) => signUp(e)}>Register</button>
 					</div>
 					<div className='alreadyUser'>
 						<h5>Already a merchant</h5>

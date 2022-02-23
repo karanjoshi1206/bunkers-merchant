@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./screens/LoginSignup/Login.js";
 import Home from "./screens/Home/Home";
 import Orderinfo from "./components/orderinfo/Orderinfo";
-import "bootstrap/dist/css/bootstrap.min.css";
-
 function App() {
 	return (
 		<div className='App'>
