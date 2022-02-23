@@ -3285,6 +3285,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
 clean-css@^4.2.3:
   version "4.2.3"
   resolved "https://registry.npmjs.org/clean-css/-/clean-css-4.2.3.tgz"
@@ -9248,6 +9253,11 @@ react@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
+reactjs-popup@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/reactjs-popup/-/reactjs-popup-2.0.5.tgz#588a74966bb126699429d739948e3448d7771eac"
+  integrity sha512-b5hv9a6aGsHEHXFAgPO5s1Jw1eSkopueyUVxQewGdLgqk2eW0IVXZrPRpHR629YcgIpC2oxtX8OOZ8a7bQJbxA==
+
 read-pkg-up@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/read-pkg-up/-/read-pkg-up-2.0.0.tgz"
@@ -9641,6 +9651,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rodal@^1.8.3:
+  version "1.8.3"
+  resolved "https://registry.yarnpkg.com/rodal/-/rodal-1.8.3.tgz#19f016a48374fd4bb03e2b6f761559955c2b8c72"
+  integrity sha512-N7eilcq4vVN9pgU3xTJ7kxUbvRPxAQrB29grZVejxH/XVsg5ILSfN/kzZNmYR1O6srNnmGgZA15ITwYjeC7rgw==
+  dependencies:
+    classnames "^2.2.6"
 
 rollup-plugin-babel@^4.3.3:
   version "4.4.0"

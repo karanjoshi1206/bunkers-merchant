@@ -1,17 +1,27 @@
 import React, { useState } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		axios
+			.post("https://bunker-api-food.herokuapp.com/merchant/login", {
+				email: email,
+				password: password,
+			})
+			.then((res) => {
+				localStorage.setItem("user", res.token);
+			})
+			.catch((err) => console.log("err==", err));
 
-		localStorage.setItem("user", {
-			email: `${email}`,
-			password: password,
-		});
+		// localStorage.setItem("user", {
+		// 	email: `${email}`,
+		// 	password: password,
+		// });
 	};
 	return (
 		<div className='signUp_container'>
