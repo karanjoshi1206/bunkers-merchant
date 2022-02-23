@@ -13,6 +13,9 @@
 		// min-width: auto;
 		padding: 20px;
 	}
+	@include extraSmall {
+		min-width: auto;
+	}
 }
 .orderRow {
 	display: flex;
@@ -90,4 +93,15 @@
 	background-color: crimson;
 	border: 2px solid red;
 	color: white;
+}
+
+.modal_div {
+	h1 {
+		font-weight: normal;
+		text-align: center;
+		margin: 10px 0;
+	}
+}
+.rodal-dialog {
+	height: fit-content !important;
 }
