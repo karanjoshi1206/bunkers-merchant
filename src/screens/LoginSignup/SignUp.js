@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import swal from "sweetalert";
 
 const SignUp = () => {
-	useEffect(() => {
-		const loggedInUser = localStorage.getItem("userid");
-		if (loggedInUser) {
-			console.log(loggedInUser);
-		}
-	}, []);
+	const navigate = useNavigate();
 	const [fname, setFname] = useState("");
 	const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
@@ -19,7 +14,10 @@ const SignUp = () => {
 		e.preventDefault();
 		console.log(typeof phone);
 		if (fname === "" || phone === "" || email === "" || password === "") {
-			swal("Insufficient details ");
+			swal({
+				icon: "error",
+				title: "Insufficient details ",
+			});
 		} else {
 			await axios
 				.post("https://bunker-api-food.herokuapp.com/merchant/signup", {
@@ -31,11 +29,32 @@ const SignUp = () => {
 				.then((res) => {
 					console.log(res.data.result);
 
-					localStorage.setItem("userid", res.data.result.id);
+					localStorage.setItem("user", res.data.result._id);
+					swal({
+						icon: "success",
+						title: "Successfully created ",
+					});
+					navigate("/orders");
 				})
-				.catch((err) => console.log(err));
+				.catch((err) => {
+					console.log(err.response.status);
+					if (err.response.status === 409) {
+						swal({
+							icon: "error",
+							title: "Account already exists",
+						});
+					}
+				});
 		}
 	};
+
+	useEffect(() => {
+		const loggedInUser = localStorage.getItem("user");
+		if (loggedInUser) {
+			console.log(loggedInUser);
+			navigate("/orders");
+		}
+	}, [navigate]);
 
 	return (
 		<div className='signUp_container'>
