@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import "./Order.scss";
-// import "../orderinfo/Orderinfo.scss";
+import { Scrollbars } from "react-custom-scrollbars";
 import Rodal from "rodal";
 import "rodal/lib/rodal.css";
-
 const Order = ({ elem, handleShow, update }) => {
 	// let navigate = useNavigate();
 	const [isComplete, setIsComplete] = useState(false);
@@ -34,30 +32,35 @@ const Order = ({ elem, handleShow, update }) => {
 					<div>
 						<h4>Items</h4>
 						<div className='itemList'>
-							<div className='item'>
-								<h4>Maggie</h4>
-								<p>× 4</p>
-							</div>
-							<div className='item'>
-								<h4>Noodles</h4>
-								<p>× 3</p>
-							</div>
-							<div className='item'>
-								<h4>Chai</h4>
-								<p>× 2</p>
-							</div>{" "}
-							<div className='item'>
-								<h4>Maggie</h4>
-								<p>× 4</p>
-							</div>
-							<div className='item'>
-								<h4>Noodles</h4>
-								<p>× 3</p>
-							</div>
-							<div className='item'>
-								<h4>Chai</h4>
-								<p>× 2</p>
-							</div>
+							<Scrollbars
+								autoHideTimeout={300}
+								autoHideDuration={200}
+								style={{ height: 150, padding: "20px" }}>
+								<div className='item'>
+									<h4>Maggie</h4>
+									<p>× 4</p>
+								</div>
+								<div className='item'>
+									<h4>Noodles</h4>
+									<p>× 3</p>
+								</div>
+								<div className='item'>
+									<h4>Chai</h4>
+									<p>× 2</p>
+								</div>{" "}
+								<div className='item'>
+									<h4>Maggie</h4>
+									<p>× 4</p>
+								</div>
+								<div className='item'>
+									<h4>Noodles</h4>
+									<p>× 3</p>
+								</div>
+								<div className='item'>
+									<h4>Chai</h4>
+									<p>× 2</p>
+								</div>
+							</Scrollbars>
 						</div>
 					</div>
 					<div className='orderinfo'>
