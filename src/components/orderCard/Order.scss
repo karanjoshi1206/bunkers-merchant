@@ -109,7 +109,13 @@
 		text-align: center;
 		margin: 10px 0;
 	}
+	@include mobile {
+		padding: 20px 5px;
+	}
 }
 .rodal-dialog {
 	height: fit-content !important;
+	@include mobile {
+		width: 100% !important;
+	}
 }

@@ -58,6 +58,7 @@ const Cancel = () => {
 												elem={elem}
 												setRefresh={setRefresh}
 												refresh={refresh}
+												page='cancelled'
 											/>
 										);
 									})}

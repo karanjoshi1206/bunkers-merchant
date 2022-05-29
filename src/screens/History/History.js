@@ -60,6 +60,7 @@ const History = () => {
 												elem={elem}
 												setRefresh={setRefresh}
 												refresh={refresh}
+												page='History'
 											/>
 										);
 									})}
