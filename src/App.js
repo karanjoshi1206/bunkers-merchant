@@ -9,18 +9,20 @@ import {
 } from "react-router-dom";
 import Login from "./screens/LoginSignup/Login.js";
 import Home from "./screens/Home/Home";
-import Orderinfo from "./components/orderinfo/Orderinfo";
+import History from "./screens/History/History";
+import Cancel from "./screens/Cancelled/Cancel";
 function App() {
 	return (
 		<div className='App'>
 			<Router>
 				<Routes>
-					<Route path='/' element={<Navigate replace to='/signUp' />} />
+					<Route path='/' element={<Navigate replace to='/signup' />} />
 
-					<Route exact path='/signUp' element={<SignUp />} />
+					<Route exact path='/signup' element={<SignUp />} />
 					<Route exact path='/login' element={<Login />} />
 					<Route exact path='/orders' element={<Home />} />
-					<Route exact path='/orderInfo/:id' element={<Orderinfo />} />
+					<Route exact path='/history' element={<History />} />
+					<Route exact path='/cancelled-orders' element={<Cancel />} />
 				</Routes>
 			</Router>
 		</div>

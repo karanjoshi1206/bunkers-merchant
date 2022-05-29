@@ -83,6 +83,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		cursor: pointer;
 	}
 	.logo_container img {
 		height: 50px;
@@ -91,15 +92,19 @@
 	.menu {
 		display: flex;
 		flex-direction: column;
-		position: absolute;
+		position: fixed;
 		top: 0px;
 		left: 0;
 		/* left: -400px; */
 		left: 0;
-		background-color: rgb(255, 75, 58);
+		background-color: white;
+		// background-color: rgb(255, 75, 58);
 		padding: 30px;
 		width: 300px;
-		height: 100vh;
+		height: 100%;
+		// border: 2px solid rgb(255, 75, 58);
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 	.menu li {
 		margin: 40px 0;
@@ -107,14 +112,16 @@
 	.menu li a {
 		text-decoration: none;
 		padding: 0 10px;
-		color: white;
+		color: rgb(255, 21, 0);
 		transition: 0.3s ease;
 		border-radius: 5px;
 		padding: 7px 15px;
-		box-shadow: 4px 1px 6px 2px rgb(255, 21, 0);
-		-webkit-box-shadow: 4px 1px 6px 2px rgb(255, 21, 0);
-		-moz-box-shadow: 4px 1px 6px 2px rgb(255, 21, 0);
+		border-radius: 50px;
+		background: #e0e0e0;
+		box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+		// border: 2px solid rgb(255, 21, 0);
 		margin: 10px 30px 0 30px;
-		font-size: 20px;
+		font-size: 15px;
+		padding: 10px 20px;
 	}
 }

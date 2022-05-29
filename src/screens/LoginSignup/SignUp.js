@@ -1,61 +1,63 @@
 import React, { useEffect, useState } from "react";
 import "./SignUp.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import firebase from "firebase";
 import swal from "sweetalert";
 
 import Loader from "../../utils/Loader";
+import { auth } from "../../firebase";
 
 const SignUp = () => {
+	const googleProvider = new firebase.auth.GoogleAuthProvider();
+
 	const navigate = useNavigate();
-	const [fname, setFname] = useState("");
-	const [phone, setPhone] = useState("");
+	// const [fname, setFname] = useState("");
+	// const [phone, setPhone] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
-	const signUp = async (e) => {
-		setLoading(true);
-		e.preventDefault();
-		console.log(typeof phone);
-		if (fname === "" || phone === "" || email === "" || password === "") {
-			swal({
-				icon: "error",
-				title: "Insufficient details ",
+	const signInWithGoogle = async () => {
+		auth
+			.signInWithPopup(googleProvider)
+			.then((res) => {
+				console.log(res.user.displayName);
+				localStorage.setItem("user", JSON.stringify(res.user.displayName));
+				navigate("/orders");
+			})
+			.catch((error) => {
+				console.log(error.message);
 			});
-			setLoading(false);
-		} else {
-			await axios
-				.post("https://bunker-api-food.herokuapp.com/merchant/signup", {
-					email: email,
-					password: password,
-					name: fname,
-					phoneNumber: phone,
-				})
-				.then((res) => {
-					console.log(res.data);
-
-					localStorage.setItem("user", JSON.stringify(res.data.result));
-					setLoading(false);
-
-					navigate("/orders");
-				})
-				.catch((err) => {
-					setLoading(false);
-					console.log(err?.response?.status);
-					swal({
-						icon: "error",
-						title: "Something went wrong!!	",
-					});
-				});
-		}
 	};
 
+	const register = (e) => {
+		setLoading(true);
+		e.preventDefault();
+		auth
+			.createUserWithEmailAndPassword(email, password)
+			.then((auth) => {
+				console.log(auth.user.email);
+				localStorage.setItem("user", JSON.stringify(auth.user.email));
+				setLoading(false);
+				navigate("/orders");
+			})
+			.catch((e) => {
+				setLoading(false);
+				swal({
+					icon: "error",
+					title: `There is an error ${e}`,
+				});
+			});
+	};
 	useEffect(() => {
 		const loggedInUser = localStorage.getItem("user");
 
-		if (loggedInUser?._id) {
+		if (loggedInUser) {
 			console.log(loggedInUser);
-			navigate("/orders");
+			navigate("/orders", {
+				state: {
+					showToast: true,
+				},
+			});
 		}
 	}, [navigate]);
 
@@ -68,7 +70,7 @@ const SignUp = () => {
 					<div className='title'>Register</div>
 					<form autoComplete='false' action='#'>
 						<div className='user-details'>
-							<div className='input_box'>
+							{/* <div className='input_box'>
 								<label className='details' htmlFor='name'>
 									Full Name
 								</label>
@@ -93,7 +95,7 @@ const SignUp = () => {
 									id='number'
 									placeholder='Eg. 894728392'
 								/>
-							</div>
+							</div> */}
 							<div className='input_box'>
 								<label className='details' htmlFor='email'>
 									Email
@@ -124,11 +126,23 @@ const SignUp = () => {
 
 						<div className='button'>
 							{/* <input autoComplete='off' type='submit' value='Register' /> */}
-							<button onClick={(e) => signUp(e)}>Register</button>
+							<button onClick={(e) => register(e)}>Register</button>
 						</div>
+
 						<div className='alreadyUser'>
 							<h5>Already a merchant</h5>
-							<Link to='/login'>Login here</Link>
+							<div className='login-links'>
+								<Link to={"/login"}>Login</Link>
+								or
+								<div
+									className='google'
+									onClick={() => {
+										signInWithGoogle();
+									}}>
+									<img className='logo' src='./images/google logo.png' alt='' />
+									Join with google
+								</div>
+							</div>
 						</div>
 					</form>
 				</div>
