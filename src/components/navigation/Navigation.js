@@ -19,17 +19,16 @@ const Navigation = () => {
 				</div>
 				<ul className={`menu ${menuOpen === true ? "" : "active"}`}>
 					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/orders'>Home</Link>
+						<Link to='/orders'>Orders</Link>
+					</li>
+
+					<li onClick={(e) => handleOpen(e)}>
+						<Link to='/history'>History</Link>
 					</li>
 					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/'>Settings</Link>
+						<Link to='/cancelled-orders'>Cancelled Orders</Link>
 					</li>
-					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/'>History</Link>
-					</li>
-					<li onClick={(e) => handleOpen(e)}>
-						<Link to='/'>Profile</Link>
-					</li>{" "}
+
 					<li
 						onClick={(e) => {
 							handleOpen(e);

@@ -1,34 +1,50 @@
 import React, { useState } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../utils/Loader";
 import swal from "sweetalert";
+import { auth } from "../../firebase";
+import firebase from "firebase";
 
 const Login = () => {
+	const googleProvider = new firebase.auth.GoogleAuthProvider();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
-	const handleSubmit = async (e) => {
+	const navigate = useNavigate();
+	const signInWithGoogle = () => {
+		auth
+			.signInWithPopup(googleProvider)
+			.then((res) => {
+				console.log(res.user.displayName);
+				localStorage.setItem("user", JSON.stringify(res.user.displayName));
+				navigate("/orders");
+			})
+			.catch((error) => {
+				console.log(error.message);
+			});
+	};
+	const login = (e) => {
 		setLoading(true);
 
 		e.preventDefault();
-		axios
-			.post("https://bunker-api-food.herokuapp.com/merchant/login", {
-				email: email,
-				password: password,
-			})
-			.then((res) => {
-				localStorage.setItem("user", res.token);
+		auth
+			.signInWithEmailAndPassword(email, password)
+			.then((auth) => {
+				console.log("auth is ", auth);
+				navigate("/orders", {
+					state: {
+						showToast: true,
+					},
+				});
 				setLoading(false);
 			})
-			.catch((err) => {
+			.catch((e) => {
+				setLoading(false);
 				swal({
 					icon: "error",
-					title: "Something went wrong!!	",
+					title: `There is an error ${e}`,
 				});
-
-				setLoading(false);
 			});
 	};
 	return (
@@ -80,11 +96,33 @@ const Login = () => {
 							type='submit'
 							value='Login'
 						/> */}
-							<button onClick={(e) => handleSubmit(e)}>Submit</button>
+							<button onClick={(e) => login(e)}>Submit</button>
+						</div>
+						<div
+							style={{
+								textAlign: "center",
+							}}
+							className='text'>
+							or
 						</div>
 						<div className='alreadyUser'>
+							<div className='login-links'>
+								<div
+									className='google'
+									onClick={() => {
+										signInWithGoogle();
+									}}>
+									<img className='logo' src='./images/google logo.png' alt='' />
+									Join with google
+								</div>
+							</div>
+						</div>
+						<br />
+						<br />
+
+						<div className='alreadyUser'>
 							<h5>Not a merchant</h5>
-							<Link to='/'>SignUp here</Link>
+							<Link to='/'>Sign Up here</Link>
 						</div>
 					</form>
 				</div>
