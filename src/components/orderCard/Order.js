@@ -166,7 +166,7 @@ const Order = ({ elem, handleShow, setRefresh, refresh, page = "" }) => {
 				)}
 
 				<div className='orderRow'>
-					{page === "cancelled" ? (
+					{page === "cancelled" || page == "History" ? (
 						<></>
 					) : (
 						<button
@@ -194,32 +194,35 @@ const Order = ({ elem, handleShow, setRefresh, refresh, page = "" }) => {
 							)}
 						</button>
 					)}
-
-					<button
-						onClick={(e) => {
-							e.stopPropagation();
-							setCancelledLoading(true);
-							updateStatus(e, "cancelled");
-							// handleShow(e);
-						}}
-						className='order_button order_button_cancel'
-						// disabled='disabled'
-					>
-						{cancelledLoading ? (
-							<Bars
-								height='20'
-								width='100'
-								color='orange'
-								ariaLabel='loading'
-							/>
-						) : (
-							<>
-								{elem.status === "cancelled"
-									? "Order Cancelled"
-									: "Cancel Order"}
-							</>
-						)}
-					</button>
+					{page == "History" ? (
+						<></>
+					) : (
+						<button
+							onClick={(e) => {
+								e.stopPropagation();
+								setCancelledLoading(true);
+								updateStatus(e, "cancelled");
+								// handleShow(e);
+							}}
+							className='order_button order_button_cancel'
+							// disabled='disabled'
+						>
+							{cancelledLoading ? (
+								<Bars
+									height='20'
+									width='100'
+									color='orange'
+									ariaLabel='loading'
+								/>
+							) : (
+								<>
+									{elem.status === "cancelled"
+										? "Order Cancelled"
+										: "Cancel Order"}
+								</>
+							)}
+						</button>
+					)}
 				</div>
 			</div>
 		</>
